@@ -580,30 +580,25 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" maxlength="100" pattern="^[A-Za-z\s\-'\.]{1,100}$" title="Please enter a valid name (letters, spaces, hyphens, apostrophes and periods only)" required>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" maxlength="100" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address" required>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" maxlength="200" pattern="^[A-Za-z0-9\s\-_,.!?]{1,200}$" title="Please enter a valid subject (alphanumeric characters and basic punctuation only)" required>
+                            <input type="text" id="subject" name="subject" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" maxlength="1000" required></textarea>
+                            <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn primary-btn">Send Message</button>
                     </form>
-                    <div id="success-message" class="hidden">
-                        <h3>Message Received!</h3>
-                        <p>Thank you for reaching out. In a real deployment, this would be sent to my email.</p>
-                        <button class="btn secondary-btn" onclick="resetForm()">Send Another Message</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -885,73 +880,5 @@
             color: var(--accent-color);
         }
     </style>
-
-    <!-- Add security script at the end of file, before closing body -->
-    <script>
-    // Form security handling
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        
-        // Get form values
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const subject = document.getElementById('subject').value.trim();
-        const message = document.getElementById('message').value.trim();
-        
-        // Simple validation
-        if (!name || !email || !subject || !message) {
-            alert('Please fill in all fields');
-            return false;
-        }
-        
-        // Email validation with regex
-        const emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address');
-            return false;
-        }
-        
-        // Sanitize inputs (basic)
-        const sanitizedName = sanitizeInput(name);
-        const sanitizedSubject = sanitizeInput(subject);
-        const sanitizedMessage = sanitizeInput(message);
-        
-        // Log to console (in a real app, this would be sent to a server)
-        console.log('Form submission (sanitized):');
-        console.log('Name:', sanitizedName);
-        console.log('Email:', email);
-        console.log('Subject:', sanitizedSubject);
-        console.log('Message:', sanitizedMessage);
-        
-        // Show success message
-        document.getElementById('contactForm').classList.add('hidden');
-        document.getElementById('success-message').classList.remove('hidden');
-        
-        return false;
-    }
-
-    // Basic sanitization function to prevent XSS
-    function sanitizeInput(input) {
-        const div = document.createElement('div');
-        div.textContent = input;
-        return div.innerHTML;
-    }
-
-    // Reset form to allow another submission
-    function resetForm() {
-        document.getElementById('contactForm').reset();
-        document.getElementById('contactForm').classList.remove('hidden');
-        document.getElementById('success-message').classList.add('hidden');
-    }
-
-    // Add style for hidden class if not already defined
-    document.head.insertAdjacentHTML('beforeend', `
-        <style>
-            .hidden {
-                display: none;
-            }
-        </style>
-    `);
-    </script>
 </body>
 </html>
