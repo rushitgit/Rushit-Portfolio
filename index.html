@@ -26,6 +26,52 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+        
+        /* Space Facts Module Styling */
+        .space-facts-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .minimize-btn {
+            background: transparent;
+            border: none;
+            color: #4cc9f0;
+            cursor: pointer;
+            font-size: 14px;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        
+        .minimize-btn:hover {
+            background: rgba(76, 201, 240, 0.2);
+        }
+        
+        .space-facts-module.minimized .space-fact-content {
+            display: none;
+        }
+        
+        .space-facts-module.minimized {
+            width: auto;
+            min-width: 60px;
+            padding: 10px;
+        }
+        
+        .space-facts-module.minimized h3 {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .space-facts-module {
+            transition: all 0.3s ease-in-out;
+        }
     </style>
 </head>
 <body class="galaxy-theme">
@@ -40,14 +86,19 @@
     
     <!-- Space Facts Module -->
     <div class="space-facts-module">
-        <h3><i class="fas fa-rocket"></i> Space Fact</h3>
-        <div class="space-fact">
-            <p id="space-fact-text">Loading fascinating space fact...</p>
-            <div class="space-fact-icon">
-                <i class="fas fa-galaxy"></i>
-            </div>
+        <div class="space-facts-header">
+            <h3><i class="fas fa-rocket"></i> Space Fact</h3>
+            <button id="minimize-facts-button" class="minimize-btn" title="Minimize"><i class="fas fa-minus"></i></button>
         </div>
-        <button id="new-fact-button">New Fact <i class="fas fa-sync-alt"></i></button>
+        <div class="space-fact-content">
+            <div class="space-fact">
+                <p id="space-fact-text">Loading fascinating space fact...</p>
+                <div class="space-fact-icon">
+                    <i class="fas fa-galaxy"></i>
+                </div>
+            </div>
+            <button id="new-fact-button">New Fact <i class="fas fa-sync-alt"></i></button>
+        </div>
     </div>
     
     <header>
@@ -317,6 +368,22 @@
         <div class="container">
             <h2 class="section-title text-glow">Projects</h2>
             <div class="projects-grid">
+                <!-- New Project Card for Transformer Architecture Visualizer -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Transformer Architecture Visualizer</h3>
+                        <p>A minimalistic visualization tool that helps you understand how transformer models work under the hood. This project provides clear visualizations of transformer components, attention mechanisms, and token representations using a lightweight BERT model from Hugging Face.</p>
+                        <div class="project-tags">
+                            <span>Visualization</span>
+                            <span>Transformer Models</span>
+                            <span>AI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/rushitgit/TransformerArchitecture" class="btn small-btn"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Existing Project Cards -->
                 <div class="project-card">
                     <div class="project-content">
                         <h3>FinAgent</h3>
@@ -482,7 +549,7 @@
                     <div class="education-details">
                         <h3>BITS Pilani, Dubai Campus</h3>
                         <p>BTech in Computer Science</p>
-                        <p>CGPA: 8.95</p>
+                        <p>CGPA: 9.00</p>
                     </div>
                 </div>
                 <div class="education-item">
@@ -492,6 +559,7 @@
                     <div class="education-details">
                         <h3>City International School, Pune</h3>
                         <p>11th and 12th</p>
+                        <p>Percentage: 88.8%</p>
                     </div>
                 </div>
                 <div class="education-item">
@@ -566,7 +634,7 @@
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <h3>Email</h3>
-                        <p><a href="mailto:rushit.palesha@example.com">rushit.palesha@example.com</a></p>
+                        <p><a href="mailto:rushit.palesha@example.com">rushitpalesha21@gmail.com</a></p>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-linkedin"></i>
@@ -631,6 +699,27 @@
     <script src="starfield.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Space Facts Module Minimize functionality
+        const minimizeButton = document.getElementById('minimize-facts-button');
+        const spaceFactsModule = document.querySelector('.space-facts-module');
+        const spaceFactContent = document.querySelector('.space-fact-content');
+        
+        if (minimizeButton) {
+            minimizeButton.addEventListener('click', function() {
+                spaceFactsModule.classList.toggle('minimized');
+                
+                // Change icon based on state
+                if (spaceFactsModule.classList.contains('minimized')) {
+                    minimizeButton.innerHTML = '<i class="fas fa-plus"></i>';
+                    minimizeButton.setAttribute('title', 'Expand');
+                } else {
+                    minimizeButton.innerHTML = '<i class="fas fa-minus"></i>';
+                    minimizeButton.setAttribute('title', 'Minimize');
+                }
+            });
+        }
+        
+        // Existing challenge button functionality
         const challengeBtn = document.querySelector('.challenge-btn');
         
         if (challengeBtn) {
