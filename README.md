@@ -36,4 +36,4 @@ Feel free to reach out to me through the contact form on the website or directly
 
 ---
 
-© 2023 Rushit Palesha. All Rights Reserved. 
+© 2024 Rushit Palesha. All Rights Reserved.
