@@ -4,32 +4,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const logos = [
         {
             id: 'deriv-logo',
-            path: 'assets/images/logos/deriv-logo.png',
-            fallbackPath: 'assets/images/logos/deriv-logo1.jpg', // Use jpg as secondary option
+            path: './assets/images/logos/deriv-logo.png',
+            fallbackPath: './assets/images/logos/deriv-logo1.jpg', // Use jpg as secondary option
             alt: 'Deriv'
         },
         {
             id: 'jetsynthesys-logo',
-            path: 'assets/images/logos/jetsynthesys-logo.png',
-            fallbackPath: 'assets/images/logos/placeholder.png',
+            path: './assets/images/logos/jetsynthesys-logo.png',
+            fallbackPath: './assets/images/logos/placeholder.png',
             alt: 'Jetsynthesys'
         },
         {
             id: 'xpert-logo',
-            path: 'assets/images/logos/bits-logo.png', // Using bits-logo.png for xPERT
-            fallbackPath: 'assets/images/logos/placeholder.png',
+            path: './assets/images/logos/bits-logo.png', // Using bits-logo.png for xPERT
+            fallbackPath: './assets/images/logos/placeholder.png',
             alt: 'xPERT BPDC'
         },
         {
             id: 'cybage-logo',
-            path: 'assets/images/logos/cybage-logo.png',
-            fallbackPath: 'assets/images/logos/placeholder.png',
+            path: './assets/images/logos/cybage-logo.png',
+            fallbackPath: './assets/images/logos/placeholder.png',
             alt: 'Cybage'
         },
         {
             id: 'forcemotors-logo',
-            path: 'assets/images/logos/force-logo.png', // Using force-logo.png
-            fallbackPath: 'assets/images/logos/placeholder.png',
+            path: './assets/images/logos/force-logo.png', // Using force-logo.png
+            fallbackPath: './assets/images/logos/placeholder.png',
             alt: 'Force Motors'
         }
     ];
