@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             id: 'deriv-logo',
             path: 'assets/images/logos/deriv-logo.png',
-            fallbackPath: 'assets/images/logos/placeholder.png',
+            fallbackPath: 'assets/images/logos/deriv-logo1.jpg', // Use jpg as secondary option
             alt: 'Deriv'
         },
         {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 'xpert-logo',
-            path: 'assets/images/logos/bits-logo.png',
+            path: 'assets/images/logos/bits-logo.png', // Using bits-logo.png for xPERT
             fallbackPath: 'assets/images/logos/placeholder.png',
             alt: 'xPERT BPDC'
         },
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 'forcemotors-logo',
-            path: 'assets/images/logos/force-logo.png',
+            path: 'assets/images/logos/force-logo.png', // Using force-logo.png
             fallbackPath: 'assets/images/logos/placeholder.png',
             alt: 'Force Motors'
         }
@@ -38,8 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadLogo(logoConfig) {
         const logoElement = document.getElementById(logoConfig.id);
         if (!logoElement) {
-            // If the element doesn't exist yet, create it in the appropriate timeline item
-            createLogoElement(logoConfig);
+            console.warn(`Logo element with ID ${logoConfig.id} not found.`);
             return;
         }
 
@@ -53,56 +52,24 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         localImage.onerror = function() {
-            // If local image fails, use placeholder
-            logoElement.src = 'assets/images/logos/placeholder.png';
-            logoElement.alt = logoConfig.alt;
-            logoElement.classList.add('loaded');
-            console.warn(`Could not load logo for ${logoConfig.alt}, using placeholder.`);
+            // If primary image fails, try fallback
+            const fallbackImage = new Image();
+            fallbackImage.onload = function() {
+                logoElement.src = logoConfig.fallbackPath;
+                logoElement.alt = logoConfig.alt;
+                logoElement.classList.add('loaded');
+            };
+            
+            fallbackImage.onerror = function() {
+                // If both paths fail, use the parent's data-initials
+                logoElement.style.display = 'none';
+                console.warn(`Could not load logo for ${logoConfig.alt}, fallback to initials.`);
+            };
+            
+            fallbackImage.src = logoConfig.fallbackPath;
         };
         
         localImage.src = logoConfig.path;
-    }
-
-    // Function to create logo elements for timeline items if they don't exist
-    function createLogoElement(logoConfig) {
-        // Find timeline items by company name
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        
-        timelineItems.forEach(item => {
-            const companyName = item.querySelector('h4');
-            if (!companyName) return;
-            
-            // Extract company name from the header
-            const companyText = companyName.textContent.toLowerCase();
-            const logoCompanyName = logoConfig.alt.toLowerCase();
-            
-            // Match company name to timeline item
-            if (companyText.includes(logoCompanyName)) {
-                // Check if there's already a logo container
-                let logoContainer = item.querySelector('.company-logo-container');
-                
-                if (!logoContainer) {
-                    logoContainer = document.createElement('div');
-                    logoContainer.className = 'company-logo-container';
-                    const content = item.querySelector('.timeline-content');
-                    if (content) {
-                        content.insertBefore(logoContainer, content.firstChild);
-                    }
-                }
-                
-                // Check if the logo already exists
-                if (!logoContainer.querySelector('img')) {
-                    const logoImg = document.createElement('img');
-                    logoImg.id = logoConfig.id;
-                    logoImg.className = 'company-logo';
-                    logoImg.alt = logoConfig.alt;
-                    logoContainer.appendChild(logoImg);
-                    
-                    // Now load the logo
-                    loadLogo(logoConfig);
-                }
-            }
-        });
     }
 
     // Function to create directory structure if needed
@@ -116,56 +83,21 @@ document.addEventListener('DOMContentLoaded', function() {
         LOGO PREPARATION GUIDE:
         
         1. Create a folder: assets/images/logos
-        2. Save your company logos with these standardized names:
-           - deriv-logo.png
+        2. Current logo files used:
+           - deriv-logo.png or deriv-logo1.jpg
            - jetsynthesys-logo.png
-           - xpert-logo.png
+           - bits-logo.png
            - cybage-logo.png
-           - forcemotors-logo.png
+           - force-logo.png
         3. Make all logos square or circular in shape
         4. Ensure each logo has a transparent background
         5. Standardize size to approximately 200x200 pixels
         `);
     }
     
-    // Standardize logo sizes via CSS
-    function addLogoStyles() {
-        const style = document.createElement('style');
-        style.textContent = `
-            .company-logo-container {
-                display: flex;
-                justify-content: flex-start;
-                margin-bottom: 15px;
-            }
-            
-            .company-logo {
-                width: 64px;
-                height: 64px;
-                object-fit: contain;
-                border-radius: 50%;
-                background-color: white;
-                padding: 8px;
-                box-shadow: 0 0 10px rgba(76, 201, 240, 0.3);
-                opacity: 0;
-                transition: all 0.5s ease;
-            }
-            
-            .company-logo.loaded {
-                opacity: 1;
-            }
-            
-            .company-logo:hover {
-                transform: scale(1.1);
-                box-shadow: 0 0 15px rgba(76, 201, 240, 0.6);
-            }
-        `;
-        document.head.appendChild(style);
-    }
-
     // Initialize logo loading
     function initLogoLoader() {
         ensureDirectoriesExist();
-        addLogoStyles();
         
         // Load each logo
         logos.forEach(loadLogo);
