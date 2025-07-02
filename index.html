@@ -14,6 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
+    <!-- Anime.js for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
     <!-- Neon text glow animation -->
     <style>
         @keyframes neonPulse {
@@ -285,33 +288,149 @@
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title text-glow">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a Generative AI specialist with a comprehensive background in the evolution of AI technologies. My journey from traditional programming to cutting-edge AI agent architecture has equipped me with a unique perspective on building intelligent systems.</p>
-                    <p>With expertise in Large Language Models (LLMs), transformer architectures, and agentic AI systems, I develop solutions that leverage the full potential of generative AI to solve complex business problems.</p>
-                    <p>My passion lies in creating AI agents that can reason, plan, and execute tasks with minimal human intervention, particularly in domains requiring specialized knowledge like finance, healthcare, and enterprise operations.</p>
-                    <div class="highlights">
-                        <div class="highlight-item">
+            
+            <!-- Main About Content Card -->
+            <div class="about-main-card" data-anime="fadeInUp">
+                <div class="about-card-content">
+                    <div class="about-profile-section">
+                        <div class="about-avatar">
+                            <div class="avatar-glow"></div>
+                            <img src="./assets/images/profile/rushit-linkedin.jpeg" alt="Rushit Palesha">
+                            <div class="avatar-overlay">
+                                <div class="avatar-tech-icons">
+                                    <i class="fas fa-robot" data-anime="floating"></i>
+                                    <i class="fas fa-brain" data-anime="floating"></i>
+                                    <i class="fas fa-code" data-anime="floating"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-intro">
+                            <h3>Generative AI Specialist</h3>
+                            <p class="subtitle">Building the future of intelligent systems</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-description">
+                        <div class="description-card" data-anime="slideInLeft">
+                            <div class="card-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="card-text">
+                                <h4>Innovation Focus</h4>
+                                <p>I'm a Generative AI specialist with a comprehensive background in the evolution of AI technologies. My journey from traditional programming to cutting-edge AI agent architecture has equipped me with a unique perspective on building intelligent systems.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="description-card" data-anime="slideInRight">
+                            <div class="card-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="card-text">
+                                <h4>Technical Expertise</h4>
+                                <p>With expertise in Large Language Models (LLMs), transformer architectures, and agentic AI systems, I develop solutions that leverage the full potential of generative AI to solve complex business problems.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="description-card" data-anime="slideInLeft">
+                            <div class="card-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="card-text">
+                                <h4>Future Vision</h4>
+                                <p>My passion lies in creating AI agents that can reason, plan, and execute tasks with minimal human intervention, particularly in domains requiring specialized knowledge like finance, healthcare, and enterprise operations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Achievements Grid -->
+            <div class="achievements-section">
+                <h3 class="achievements-title" data-anime="textReveal">Key Achievements</h3>
+                <div class="achievements-grid">
+                    <div class="achievement-card" data-anime="scaleIn" data-delay="100">
+                        <div class="achievement-icon">
                             <i class="fas fa-award"></i>
-                            <h3>Global Nominee</h3>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <div class="achievement-content">
+                            <h4>Global Nominee</h4>
                             <p>NASA Space Apps Challenge 2023</p>
+                            <div class="achievement-badge">🌍</div>
                         </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-award"></i>
-                            <h3>Second Place</h3>
+                    </div>
+                    
+                    <div class="achievement-card" data-anime="scaleIn" data-delay="200">
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <div class="achievement-content">
+                            <h4>Second Place</h4>
                             <p>Deriv AI Innovation Hackathon</p>
+                            <div class="achievement-badge">🏆</div>
                         </div>
-
-                        <div class="highlight-item">
+                    </div>
+                    
+                    <div class="achievement-card" data-anime="scaleIn" data-delay="300">
+                        <div class="achievement-icon">
                             <i class="fas fa-users"></i>
-                            <h3>UAE Section Lead</h3>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <div class="achievement-content">
+                            <h4>UAE Section Lead</h4>
                             <p>IEEEXtreme 17.0 Region 8</p>
+                            <div class="achievement-badge">🇦🇪</div>
                         </div>
-                        <div class="highlight-item">
+                    </div>
+                    
+                    <div class="achievement-card" data-anime="scaleIn" data-delay="400">
+                        <div class="achievement-icon">
                             <i class="fas fa-code"></i>
-                            <h3>Technical Lead</h3>
-                            <p>Google Developers Group, BITS Pilani Dubai</p>
+                            <div class="icon-glow"></div>
                         </div>
+                        <div class="achievement-content">
+                            <h4>Technical Lead</h4>
+                            <p>Google Developers Group, BITS Pilani Dubai</p>
+                            <div class="achievement-badge">💻</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats Cards -->
+            <div class="stats-section" data-anime="slideInUp">
+                <div class="stats-grid">
+                    <div class="stat-card" data-anime="counter" data-target="50">
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">AI Projects</div>
+                    </div>
+                    
+                    <div class="stat-card" data-anime="counter" data-target="5">
+                        <div class="stat-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    
+                    <div class="stat-card" data-anime="counter" data-target="100">
+                        <div class="stat-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Cups of Coffee</div>
+                    </div>
+                    
+                    <div class="stat-card" data-anime="counter" data-target="24">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Hours Coding Daily</div>
                     </div>
                 </div>
             </div>
@@ -458,167 +577,386 @@
 
     <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title text-glow">Experience</h2>
-            <div class="experience-timeline">
-                <div class="experience-timeline-line"></div>
-                
-                <!-- Experience Item 1 -->
-                <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="experience-date">
-                        <span>Feb 2025 - Present</span>
+            <h2 class="section-title text-glow" data-anime="titleReveal">Professional Journey</h2>
+            
+            <!-- Experience Header with Stats -->
+            <div class="experience-header" data-anime="slideInUp">
+                <div class="experience-stats">
+                    <div class="stat-item" data-anime="counterUp" data-target="5">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Companies</div>
                     </div>
-                    <div class="experience-content">
-                        <div class="company-logo" data-initials="D">
-                            <img id="deriv-logo" src="./assets/images/logos/deriv-logo.png" alt="Deriv">
-                            <div class="logo-glow"></div>
+                    <div class="stat-item" data-anime="counterUp" data-target="3" data-delay="200">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item" data-anime="counterUp" data-target="15" data-delay="400">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                </div>
+                <div class="career-path-visual">
+                    <div class="path-line"></div>
+                    <div class="career-icons">
+                        <div class="career-icon" data-anime="iconPop" data-delay="100">
+                            <i class="fas fa-code"></i>
                         </div>
-                        <div class="experience-details">
-                            <h3>AI Engineer</h3>
-                            <h4>Deriv, Dubai</h4>
-                            <div class="responsibilities">
-                                <div class="responsibility-item">
-                                    <i class="fas fa-circle"></i>
-                                    <p>Working as an AI intern in the security team</p>
+                        <div class="career-icon" data-anime="iconPop" data-delay="300">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="career-icon" data-anime="iconPop" data-delay="500">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="career-icon" data-anime="iconPop" data-delay="700">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Timeline -->
+            <div class="experience-timeline-premium">
+                <div class="timeline-spine">
+                    <div class="spine-glow"></div>
+                </div>
+                
+                <!-- Experience Item 1 - Current Position -->
+                <div class="experience-item premium-card" data-anime="experienceReveal" data-delay="100">
+                    <div class="timeline-dot current">
+                        <div class="dot-pulse"></div>
+                        <div class="dot-core"></div>
+                    </div>
+                    
+                    <div class="experience-card-premium">
+                        <div class="card-background">
+                            <div class="gradient-overlay"></div>
+                            <div class="pattern-overlay"></div>
+                        </div>
+                        
+                        <div class="experience-header-content">
+                            <div class="company-section">
+                                <div class="company-logo-premium" data-company="deriv">
+                                    <img src="./assets/images/logos/deriv-logo.png" alt="Deriv" />
+                                    <div class="logo-spotlight"></div>
+                                    <div class="logo-particles"></div>
                                 </div>
-                                <div class="responsibility-item">
-                                    <i class="fas fa-circle"></i>
-                                    <p>On-site position focused on implementing AI security solutions</p>
+                                <div class="company-info">
+                                    <h3 class="position-title">AI Engineer</h3>
+                                    <h4 class="company-name">Deriv</h4>
+                                    <div class="location-badge">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Dubai, UAE</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="tech-tags">
-                                <span>AI Security</span>
-                                <span>LLMs</span>
+                            
+                            <div class="date-range premium">
+                                <div class="date-badge current-badge">
+                                    <i class="fas fa-play"></i>
+                                    <span>Feb 2025 - Present</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-content">
+                            <div class="achievements-grid">
+                                <div class="achievement-item" data-anime="achievementSlide" data-delay="200">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="achievement-text">
+                                        <strong>AI Security Solutions:</strong> Implementing cutting-edge AI security systems
+                                    </div>
+                                </div>
+                                <div class="achievement-item" data-anime="achievementSlide" data-delay="300">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="achievement-text">
+                                        <strong>Security Team:</strong> Collaborating with cross-functional teams on-site
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tech-stack-premium">
+                                <div class="tech-category">
+                                    <span class="tech-tag ai">AI Security</span>
+                                    <span class="tech-tag llm">LLMs</span>
+                                    <span class="tech-tag ml">Machine Learning</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Experience Item 2 -->
-                <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="experience-date">
-                        <span>Jul 2024 - Aug 2024</span>
+                <div class="experience-item premium-card" data-anime="experienceReveal" data-delay="200">
+                    <div class="timeline-dot">
+                        <div class="dot-core"></div>
                     </div>
-                    <div class="experience-content">
-                        <div class="company-logo" data-initials="J">
-                            <img id="jetsynthesys-logo" src="./assets/images/logos/jetsynthesys-logo.png" alt="Jetsynthesys">
-                            <div class="logo-glow"></div>
+                    
+                    <div class="experience-card-premium">
+                        <div class="card-background">
+                            <div class="gradient-overlay"></div>
+                            <div class="pattern-overlay"></div>
                         </div>
-                        <div class="experience-details">
-                            <h3>AI Engineering Intern</h3>
-                            <h4>Jetsynthesys, India</h4>
-                            <div class="responsibilities">
-                                <div class="responsibility-item">
-                                    <i class="fas fa-circle"></i>
-                                    <p>Built NLP model to maintain brand tonality in marketing communications</p>
+                        
+                        <div class="experience-header-content">
+                            <div class="company-section">
+                                <div class="company-logo-premium" data-company="jetsynthesys">
+                                    <img src="./assets/images/logos/jetsynthesys-logo.png" alt="Jetsynthesys" />
+                                    <div class="logo-spotlight"></div>
                                 </div>
-                                <div class="responsibility-item">
-                                    <i class="fas fa-circle"></i>
-                                    <p>Created nutritional database with OpenAI, reducing costs by 95%</p>
-                                </div>
-                                <div class="responsibility-item">
-                                    <i class="fas fa-circle"></i>
-                                    <p>Researched BioMarkers for early diagnosis using MedGemini</p>
+                                <div class="company-info">
+                                    <h3 class="position-title">AI Engineering Intern</h3>
+                                    <h4 class="company-name">Jetsynthesys</h4>
+                                    <div class="location-badge">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>India</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="tech-tags">
-                                <span>NLP</span>
-                                <span>OpenAI</span>
-                                <span>MedGemini</span>
+                            
+                            <div class="date-range">
+                                <div class="date-badge">
+                                    <span>Jul 2024 - Aug 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-content">
+                            <div class="achievements-grid">
+                                <div class="achievement-item" data-anime="achievementSlide" data-delay="250">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <div class="achievement-text">
+                                        <strong>NLP Innovation:</strong> Built brand tonality maintenance model
+                                    </div>
+                                </div>
+                                <div class="achievement-item" data-anime="achievementSlide" data-delay="350">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="achievement-text">
+                                        <strong>Cost Optimization:</strong> Reduced operational costs by 95% with OpenAI integration
+                                    </div>
+                                </div>
+                                <div class="achievement-item" data-anime="achievementSlide" data-delay="450">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-dna"></i>
+                                    </div>
+                                    <div class="achievement-text">
+                                        <strong>Medical AI:</strong> Researched BioMarkers using MedGemini for early diagnosis
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tech-stack-premium">
+                                <div class="tech-category">
+                                    <span class="tech-tag nlp">NLP</span>
+                                    <span class="tech-tag openai">OpenAI</span>
+                                    <span class="tech-tag medical">MedGemini</span>
+                                    <span class="tech-tag python">Python</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Experience Item 3 -->
-                <div class="experience-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="experience-date">
-                        <span>Dec 2023 - Jul 2024</span>
+                <div class="experience-item premium-card" data-anime="experienceReveal" data-delay="300">
+                    <div class="timeline-dot">
+                        <div class="dot-core"></div>
                     </div>
-                    <div class="experience-content">
-                        <div class="company-logo" data-initials="X">
-                            <img id="xpert-logo" src="./assets/images/logos/bits-logo.png" alt="xPERT BPDC">
-                            <div class="logo-glow"></div>
+                    
+                    <div class="experience-card-premium">
+                        <div class="card-background">
+                            <div class="gradient-overlay"></div>
+                            <div class="pattern-overlay"></div>
                         </div>
-                        <div class="experience-details">
-                            <h3>Database Engineer</h3>
-                            <h4>xPERT BPDC Programme</h4>
-                            <div class="responsibilities">
-                                <div class="responsibility-item">
-                                    <i class="fas fa-circle"></i>
-                                    <p>Designed scalable architecture for a quizzing application using Firebase and Flask</p>
+                        
+                        <div class="experience-header-content">
+                            <div class="company-section">
+                                <div class="company-logo-premium" data-company="bits">
+                                    <img src="./assets/images/logos/bits-logo.png" alt="BITS Pilani" />
+                                    <div class="logo-spotlight"></div>
+                                </div>
+                                <div class="company-info">
+                                    <h3 class="position-title">Database Engineer</h3>
+                                    <h4 class="company-name">xPERT BPDC Programme</h4>
+                                    <div class="location-badge">
+                                        <i class="fas fa-university"></i>
+                                        <span>BITS Pilani</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="tech-tags">
-                                <span>Firebase</span>
-                                <span>Flask</span>
-                                <span>Database Design</span>
+                            
+                            <div class="date-range">
+                                <div class="date-badge">
+                                    <span>Dec 2023 - Jul 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-content">
+                            <div class="achievements-grid">
+                                <div class="achievement-item" data-anime="achievementSlide" data-delay="350">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-building"></i>
+                                    </div>
+                                    <div class="achievement-text">
+                                        <strong>Scalable Architecture:</strong> Designed robust quizzing application infrastructure
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tech-stack-premium">
+                                <div class="tech-category">
+                                    <span class="tech-tag firebase">Firebase</span>
+                                    <span class="tech-tag flask">Flask</span>
+                                    <span class="tech-tag database">Database Design</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Experience Item 4 -->
-                <div class="experience-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="experience-date">
-                        <span>Jun 2023 - Aug 2023</span>
+                <div class="experience-item premium-card" data-anime="experienceReveal" data-delay="400">
+                    <div class="timeline-dot">
+                        <div class="dot-core"></div>
                     </div>
-                    <div class="experience-content">
-                        <div class="company-logo" data-initials="C">
-                            <img id="cybage-logo" src="./assets/images/logos/cybage-logo.png" alt="Cybage">
-                            <div class="logo-glow"></div>
+                    
+                    <div class="experience-card-premium">
+                        <div class="card-background">
+                            <div class="gradient-overlay"></div>
+                            <div class="pattern-overlay"></div>
                         </div>
-                        <div class="experience-details">
-                            <h3>Backend Developer Intern</h3>
-                            <h4>Cybage Software, India</h4>
-                            <div class="responsibilities">
-                                <div class="responsibility-item">
-                                    <i class="fas fa-circle"></i>
-                                    <p>Prototyped Spring Data Flow Pipeline for an American record label using Spring, PostgreSQL, RabbitMQ, and RESTful Services</p>
+                        
+                        <div class="experience-header-content">
+                            <div class="company-section">
+                                <div class="company-logo-premium" data-company="cybage">
+                                    <img src="./assets/images/logos/cybage-logo.png" alt="Cybage" />
+                                    <div class="logo-spotlight"></div>
+                                </div>
+                                <div class="company-info">
+                                    <h3 class="position-title">Backend Developer Intern</h3>
+                                    <h4 class="company-name">Cybage Software</h4>
+                                    <div class="location-badge">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>India</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="tech-tags">
-                                <span>Spring</span>
-                                <span>PostgreSQL</span>
-                                <span>RabbitMQ</span>
-                                <span>REST</span>
+                            
+                            <div class="date-range">
+                                <div class="date-badge">
+                                    <span>Jun 2023 - Aug 2023</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-content">
+                            <div class="achievements-grid">
+                                <div class="achievement-item" data-anime="achievementSlide" data-delay="450">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-stream"></i>
+                                    </div>
+                                    <div class="achievement-text">
+                                        <strong>Data Pipeline:</strong> Prototyped Spring Data Flow for American record label
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tech-stack-premium">
+                                <div class="tech-category">
+                                    <span class="tech-tag spring">Spring</span>
+                                    <span class="tech-tag postgres">PostgreSQL</span>
+                                    <span class="tech-tag rabbitmq">RabbitMQ</span>
+                                    <span class="tech-tag rest">REST APIs</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Experience Item 5 -->
-                <div class="experience-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="experience-date">
-                        <span>Jul 2022 - Aug 2022</span>
+                <div class="experience-item premium-card" data-anime="experienceReveal" data-delay="500">
+                    <div class="timeline-dot">
+                        <div class="dot-core"></div>
                     </div>
-                    <div class="experience-content">
-                        <div class="company-logo" data-initials="F">
-                            <img id="forcemotors-logo" src="./assets/images/logos/force-logo.png" alt="Force Motors">
-                            <div class="logo-glow"></div>
+                    
+                    <div class="experience-card-premium">
+                        <div class="card-background">
+                            <div class="gradient-overlay"></div>
+                            <div class="pattern-overlay"></div>
                         </div>
-                        <div class="experience-details">
-                            <h3>Database Engineer Intern</h3>
-                            <h4>Force Motors Limited, India</h4>
-                            <div class="responsibilities">
-                                <div class="responsibility-item">
-                                    <i class="fas fa-circle"></i>
-                                    <p>Designed efficient database for employee share correspondences</p>
+                        
+                        <div class="experience-header-content">
+                            <div class="company-section">
+                                <div class="company-logo-premium" data-company="force">
+                                    <img src="./assets/images/logos/force-logo.png" alt="Force Motors" />
+                                    <div class="logo-spotlight"></div>
                                 </div>
-                                <div class="responsibility-item">
-                                    <i class="fas fa-circle"></i>
-                                    <p>Improved information retrieval speed by 35%</p>
-                                </div>
-                                <div class="responsibility-item">
-                                    <i class="fas fa-circle"></i>
-                                    <p>Developed Java-based OCR project for PDF scanning</p>
+                                <div class="company-info">
+                                    <h3 class="position-title">Database Engineer Intern</h3>
+                                    <h4 class="company-name">Force Motors Limited</h4>
+                                    <div class="location-badge">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>India</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="tech-tags">
-                                <span>Database Design</span>
-                                <span>Java</span>
-                                <span>OCR</span>
+                            
+                            <div class="date-range">
+                                <div class="date-badge">
+                                    <span>Jul 2022 - Aug 2022</span>
+                                </div>
                             </div>
                         </div>
+                        
+                        <div class="experience-content">
+                            <div class="achievements-grid">
+                                <div class="achievement-item" data-anime="achievementSlide" data-delay="500">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-database"></i>
+                                    </div>
+                                    <div class="achievement-text">
+                                        <strong>Database Optimization:</strong> Improved retrieval speed by 35%
+                                    </div>
+                                </div>
+                                <div class="achievement-item" data-anime="achievementSlide" data-delay="600">
+                                    <div class="achievement-icon">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                    <div class="achievement-text">
+                                        <strong>OCR Innovation:</strong> Developed Java-based PDF scanning solution
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tech-stack-premium">
+                                <div class="tech-category">
+                                    <span class="tech-tag database">Database Design</span>
+                                    <span class="tech-tag java">Java</span>
+                                    <span class="tech-tag ocr">OCR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Experience Summary -->
+            <div class="experience-summary" data-anime="summaryReveal">
+                <div class="summary-card">
+                    <div class="summary-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="summary-content">
+                        <h3>Career Progression</h3>
+                        <p>From database engineering to AI specialization, consistently delivering innovative solutions across diverse domains including healthcare, finance, and enterprise systems.</p>
                     </div>
                 </div>
             </div>
