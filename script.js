@@ -63,6 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Enhanced Experience Section Animations
+    initializeExperienceAnimations();
+    
     // Form submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
@@ -92,6 +95,179 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize the journey line once on load
     setTimeout(updateJourneyLine, 500);
+});
+
+// Enhanced Experience Section Animations
+function initializeExperienceAnimations() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    if (timelineItems.length === 0) return;
+    
+    // Create Intersection Observer for timeline items
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '-50px 0px -50px 0px'
+    };
+    
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                
+                // Add staggered animation delay
+                const index = Array.from(timelineItems).indexOf(entry.target);
+                setTimeout(() => {
+                    entry.target.style.animationDelay = '0s';
+                }, index * 150);
+                
+                // Unobserve after animation is triggered
+                timelineObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all timeline items
+    timelineItems.forEach(item => {
+        timelineObserver.observe(item);
+    });
+    
+    // Enhanced hover effects for timeline items
+    timelineItems.forEach((item, index) => {
+        const content = item.querySelector('.timeline-content');
+        const dot = item.querySelector('.timeline-dot');
+        const logo = item.querySelector('.company-logo');
+        
+        if (content) {
+            // Add mouse enter/leave effects
+            content.addEventListener('mouseenter', () => {
+                // Pause any ongoing animations on hover
+                if (dot) {
+                    dot.style.animationPlayState = 'paused';
+                }
+                
+                // Add ripple effect
+                createRippleEffect(content);
+            });
+            
+            content.addEventListener('mouseleave', () => {
+                // Resume animations
+                if (dot) {
+                    dot.style.animationPlayState = 'running';
+                }
+            });
+        }
+        
+        // Add logo loading effect
+        if (logo) {
+            // Check if image is loaded
+            if (logo.complete) {
+                logo.style.opacity = '1';
+            } else {
+                logo.addEventListener('load', () => {
+                    logo.style.opacity = '1';
+                    logo.style.transform = 'scale(1)';
+                });
+            }
+        }
+    });
+    
+    // Add floating animation trigger on scroll
+    const experienceSection = document.querySelector('#experience');
+    if (experienceSection) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    experienceSection.classList.add('section-active');
+                    startFloatingParticles();
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        sectionObserver.observe(experienceSection);
+    }
+}
+
+// Create ripple effect on timeline item hover
+function createRippleEffect(element) {
+    const ripple = document.createElement('div');
+    ripple.className = 'timeline-ripple';
+    
+    const rect = element.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = '50%';
+    ripple.style.top = '50%';
+    ripple.style.transform = 'translate(-50%, -50%) scale(0)';
+    ripple.style.position = 'absolute';
+    ripple.style.borderRadius = '50%';
+    ripple.style.background = 'rgba(76, 201, 240, 0.1)';
+    ripple.style.pointerEvents = 'none';
+    ripple.style.zIndex = '0';
+    
+    element.style.position = 'relative';
+    element.appendChild(ripple);
+    
+    // Animate ripple
+    requestAnimationFrame(() => {
+        ripple.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';
+        ripple.style.transform = 'translate(-50%, -50%) scale(2)';
+        ripple.style.opacity = '0';
+    });
+    
+    // Remove ripple after animation
+    setTimeout(() => {
+        if (ripple.parentNode) {
+            ripple.parentNode.removeChild(ripple);
+        }
+    }, 600);
+}
+
+// Start floating particles animation
+function startFloatingParticles() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.style.setProperty('--particle-delay', `${index * 0.5}s`);
+        }, index * 200);
+    });
+}
+
+// Enhanced company logo loading
+function initializeCompanyLogos() {
+    const logoIds = ['deriv-logo', 'jetsynthesys-logo', 'xpert-logo', 'cybage-logo', 'forcemotors-logo'];
+    const logoUrls = {
+        'deriv-logo': 'assets/images/logos/deriv-logo.png',
+        'jetsynthesys-logo': 'assets/images/logos/jetsynthesys-logo.png',
+        'xpert-logo': 'assets/images/logos/xpert-logo.png',
+        'cybage-logo': 'assets/images/logos/cybage-logo.png',
+        'forcemotors-logo': 'assets/images/logos/forcemotors-logo.png'
+    };
+    
+    logoIds.forEach(id => {
+        const img = document.getElementById(id);
+        if (img && logoUrls[id]) {
+            // Create new image element to preload
+            const newImg = new Image();
+            newImg.onload = function() {
+                img.src = logoUrls[id];
+                img.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                img.style.opacity = '1';
+                img.style.transform = 'scale(1)';
+            };
+            newImg.onerror = function() {
+                // Keep placeholder if logo fails to load
+                console.log(`Failed to load logo: ${id}`);
+            };
+            // Start loading
+            newImg.src = logoUrls[id];
+        }
+    });
+}
+
+// Call logo initialization
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCompanyLogos();
 });
 
 // Function to add minimal neon text effects
