@@ -239,9 +239,9 @@ function initializeCompanyLogos() {
     const logoUrls = {
         'deriv-logo': 'assets/images/logos/deriv-logo.png',
         'jetsynthesys-logo': 'assets/images/logos/jetsynthesys-logo.png',
-        'xpert-logo': 'assets/images/logos/xpert-logo.png',
+        'xpert-logo': 'assets/images/logos/placeholder.png', // xPERT logo not found, using placeholder
         'cybage-logo': 'assets/images/logos/cybage-logo.png',
-        'forcemotors-logo': 'assets/images/logos/forcemotors-logo.png'
+        'forcemotors-logo': 'assets/images/logos/force-logo.png'
     };
     
     logoIds.forEach(id => {
